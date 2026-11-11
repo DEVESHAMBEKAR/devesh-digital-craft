@@ -30,4 +30,4 @@ use the editor.
 <!-- LOVABLE:END -->
 
 ## Portfolio structure
-- Keep the public portfolio as a single TanStack Start home page with in-page sections; the visual system and portfolio content live in `src/components/Portfolio.tsx` and `src/styles.css` to keep navigation and presentation cohesive.
+- Keep the public portfolio as a single TanStack Start home page with in-page sections; the visual system and portfolio content live in `src/components/Portfolio.tsx` and `src/styles.css`, with contact input rules isolated in `src/lib/contact-schema.ts` for shared validation and focused testing.

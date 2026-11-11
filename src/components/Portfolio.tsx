@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { z } from "zod";
+import { contactSchema } from "@/lib/contact-schema";
 import shramsetuCover from "@/assets/projects/shramsetu-cover.jpg";
 
 const navItems = [
@@ -42,13 +42,6 @@ const milestones = [
   { date: "Building now", title: "Founder", company: "Deep Root Studios", text: "Building and managing a creative technology venture centered on digital solutions, product execution, team coordination and business operations.", tags: ["Entrepreneurship", "Leadership", "Product development"] },
   { date: "Campus community", title: "Campus Ambassador", company: "Paytm", text: "Representing the brand in the campus ecosystem while growing communication, outreach, networking and student-engagement skills.", tags: ["Community engagement", "Brand outreach", "Collaboration"] },
 ];
-const contactSchema = z.object({
-  name: z.string().trim().min(2, "Please enter your name.").max(100, "Name must be 100 characters or fewer."),
-  email: z.string().trim().email("Please enter a valid email address.").max(255, "Email must be 255 characters or fewer."),
-  subject: z.string().trim().min(3, "Please add a subject.").max(150, "Subject must be 150 characters or fewer."),
-  message: z.string().trim().min(10, "Please share a little more detail (at least 10 characters).").max(3000, "Message must be 3,000 characters or fewer."),
-});
-
 type Project = (typeof projects)[number];
 
 function scrollToSection(id: string) {
