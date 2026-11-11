@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
 import { ArrowDown, ArrowDownRight, ArrowRight, ArrowUpRight, BriefcaseBusiness, Check, ChevronDown, Code2, Copy, Download, ExternalLink, Github, GraduationCap, Linkedin, Mail, MapPin, Menu, MessageCircle, Rocket, Send, Sparkles, Terminal, X } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
@@ -59,7 +59,7 @@ function Wordmark({ footer = false }: { footer?: boolean }) {
   return <a href="#home" onClick={(event) => { event.preventDefault(); scrollToSection("home"); }} aria-label="Devesh Ambekar — back to top" className="wordmark"><span className="wordmark-mark">DA<span>.</span></span><span className="wordmark-name">DEVESH AMBEKAR</span>{!footer && <span className="wordmark-status" aria-label="Available"><i /></span>}</a>;
 }
 
-function SectionHeading({ eyebrow, title, number, body }: { eyebrow: string; title: string; number: string; body?: string }) {
+function SectionHeading({ eyebrow, title, number, body }: { eyebrow: string; title: ReactNode; number: string; body?: string }) {
   return <div className="section-heading"><div className="section-heading-copy"><span className="eyebrow"><span className="eyebrow-line" />{eyebrow}</span><h2>{title}</h2>{body && <p>{body}</p>}</div><span className="section-number">{number}<span> / 08</span></span></div>;
 }
 
@@ -180,9 +180,9 @@ export default function Portfolio() {
       <section className="education-section section-wrap section-space" id="education"><SectionHeading eyebrow="A strong foundation" title={<>Academic<br /><span>background.</span></>} number="05" /><article className="education-card"><div className="education-symbol"><GraduationCap size={27} /></div><div className="education-main"><span className="education-kicker">BACHELOR OF ENGINEERING</span><h3>Computer Engineering</h3><p>Zeal College of Engineering &amp; Research, Pune</p><span className="education-university">Savitribai Phule Pune University</span><div className="coursework"><span>FOUNDATIONS</span><i /> Object-oriented programming <i /> Data structures &amp; algorithms <i /> Systems</div></div><div className="education-year"><span>EXPECTED GRADUATION</span><strong>May 2027</strong></div><div className="education-watermark">BE</div></article></section>
 
       <section className="profiles-section section-wrap section-space" id="profiles"><SectionHeading eyebrow="Keep learning, keep making" title={<>Always learning.<br /><span>Always improving.</span></>} number="06" body="Places I share what I build, keep up the practice and meet the wider technology community." /><div className="profile-list">{[
-          { name: "GitHub", label: "Code, experiments & repositories", href: socials[0].href, Icon: Github, note: "BUILD IN PUBLIC" },
-          { name: "LeetCode", label: "Problem-solving & algorithms", href: socials[2].href, Icon: Terminal, note: "STAY SHARP" },
-          { name: "LinkedIn", label: "Professional network & updates", href: socials[1].href, Icon: Linkedin, note: "LET’S CONNECT" },
+          { name: "GitHub", label: "Code, experiments & repositories", href: "https://github.com/DEVESHAMBEKAR", Icon: Github, note: "BUILD IN PUBLIC" },
+          { name: "LeetCode", label: "Problem-solving & algorithms", href: "https://leetcode.com/u/ThunderBeastTech/", Icon: Terminal, note: "STAY SHARP" },
+          { name: "LinkedIn", label: "Professional network & updates", href: "https://www.linkedin.com/in/devesh-ambekar-34b13b2a0/", Icon: Linkedin, note: "LET’S CONNECT" },
         ].map(({ name, label, href, Icon, note }, index) => <a className="profile-card" key={name} href={href} target="_blank" rel="noreferrer"><span className="profile-index">0{index + 1}</span><span className="profile-icon"><Icon size={20} /></span><span className="profile-info"><strong>{name}</strong><span>{label}</span></span><span className="profile-note">{note}</span><ArrowUpRight className="profile-arrow" size={19} /></a>)}</div></section>
 
       <section className="contact-section section-wrap section-space" id="contact"><div className="contact-topline"><span className="eyebrow"><span className="eyebrow-line" />HAVE A GOOD ONE IN MIND?</span><span className="section-number">07<span> / 08</span></span></div><div className="contact-layout"><div className="contact-copy"><h2>Have an idea?<br /><span>Let&apos;s build</span><br />something.</h2><p>I&apos;m always interested in connecting with people, exploring opportunities and collaborating on meaningful technology projects.</p><div className="contact-email-block"><span>DROP A NOTE DIRECTLY</span><a href="mailto:deveshambekar@outlook.com">deveshambekar@outlook.com <ArrowUpRight size={16} /></a><Button variant="ghost" size="sm" className="copy-email" onClick={copyEmail}>{copied ? <Check size={13} /> : <Copy size={13} />}{copied ? "Copied" : "Copy email"}</Button></div><div className="contact-socials">{socials.slice(0, 3).map(({ label, href, Icon }) => <a href={href} target="_blank" rel="noreferrer" key={label} aria-label={label}><Icon size={17} /></a>)}</div></div>
