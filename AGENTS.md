@@ -28,3 +28,6 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Portfolio structure
+- Keep the public portfolio as a single TanStack Start home page with in-page sections; the visual system and portfolio content live in `src/components/Portfolio.tsx` and `src/styles.css` to keep navigation and presentation cohesive.
